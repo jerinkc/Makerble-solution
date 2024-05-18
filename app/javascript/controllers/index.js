@@ -3,6 +3,16 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application"
+import * as bootstrap from "bootstrap"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+
+document.addEventListener('turbo:load', () => {
+  let toastEl = document.querySelector('.toast');
+
+  if ( !toastEl ) return;
+  var toast = new bootstrap.Toast(toastEl);
+  toast.show();
+});

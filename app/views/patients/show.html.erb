@@ -1,0 +1,26 @@
+
+<nav class="navbar mb-3">
+  <div class="container-fluid">
+    <a class="navbar-brand">Patient Details</a>
+
+    <div class="w-50 d-flex  flex-row-reverse">
+      <%= button_to "Delete Patient", @patient, method: :delete, class: 'btn btn-danger m-1' %>
+      <%= link_to "Edit this patient", edit_patient_path(@patient), class: 'btn btn-info m-1' %>
+      <%= link_to "Back to Patients", patients_path, class: 'btn btn-link text-decoration-none m-1' %>
+    </div>
+  </div>
+</nav>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Full Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @patient %>
+  </tbody>
+</table
+
