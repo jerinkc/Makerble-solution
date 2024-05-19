@@ -27,6 +27,7 @@ class PatientsController < ApplicationController
     if @patient.update(patient_params)
       redirect_to patient_url(@patient), notice: 'Patient was successfully updated.'
     else
+      flash[:notice] = @patient.errors.full_messages
       render :edit, status: :unprocessable_entity
     end
   end
