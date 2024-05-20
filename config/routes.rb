@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :patients
   devise_for :users
+
+  resources :patients do
+    get :registration_progress, on: :collection
+  end
 
   root 'patients#index'
 end

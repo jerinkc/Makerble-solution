@@ -1,9 +1,4 @@
-<nav class="navbar mb-3">
-  <div class="container-fluid">
-    <a class="navbar-brand">Patients</a>
-    <%= link_to "New patient", new_patient_path, class: 'btn btn-info' %>
-  </div>
-</nav>
+<%= render 'navbar', title: 'Patients', patient: nil %>
 
 <table class="table">
   <thead>

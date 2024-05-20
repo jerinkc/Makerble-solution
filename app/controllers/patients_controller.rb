@@ -19,6 +19,7 @@ class PatientsController < ApplicationController
     if @patient.save
       redirect_to patients_url, notice: 'Patient was successfully created.'
     else
+      flash[:alert] = @patient.errors.full_messages
       render :new, status: :unprocessable_entity
     end
   end
@@ -27,7 +28,7 @@ class PatientsController < ApplicationController
     if @patient.update(patient_params)
       redirect_to patient_url(@patient), notice: 'Patient was successfully updated.'
     else
-      flash[:notice] = @patient.errors.full_messages
+      flash[:alert] = @patient.errors.full_messages
       render :edit, status: :unprocessable_entity
     end
   end
@@ -36,6 +37,10 @@ class PatientsController < ApplicationController
     @patient.destroy
 
     redirect_to patients_url, notice: 'Patient was successfully destroyed.'
+  end
+
+  def registration_progress
+    @progress = Patient.group("DATE(created_at)").count
   end
 
   private

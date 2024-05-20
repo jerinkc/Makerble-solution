@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><%= title %></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <span class="me-auto"></span>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to "Back to Patients", patients_path, class: 'btn btn-link text-decoration-none m-1' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "New patient", new_patient_path, class: 'btn btn-link text-decoration-none m-1' %>
+        </li>
+        <% if patient&.id %>
+          <li class="nav-item">
+            <%= link_to "Edit this patient", edit_patient_path(patient), class: 'btn btn-link text-decoration-none m-1' %>
+          </li>
+          <li class="nav-item">
+            <%= button_to "Delete Patient", patient, method: :delete, class: 'btn btn-danger m-1' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
